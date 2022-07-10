@@ -9,11 +9,11 @@ import java.util.stream.Collectors;
 
 @Component
 public class CarServiceImpl implements CarService {
-    CarDao cd = new CarDao();
+    private final CarDao carDao = new CarDao();
 
     @Override
     public List<Car> carCount(List<Car> cars, int count) {
-        cars = cd.getCars();
+        cars = carDao.getCars();
         if (count > 5) {
             return cars;
         }
